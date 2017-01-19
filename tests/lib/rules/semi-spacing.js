@@ -128,6 +128,11 @@ ruleTester.run("semi-spacing", rule, {
             errors: [ { message: "Missing whitespace after semicolon.", type: "VariableDeclaration", line: 1, column: 12 } ]
         },
         {
+            code: "var a = 'b'\n;",
+            output: "var a = 'b';",
+            errors: [ { message: "Unexpected whitespace before semicolon.", type: "VariableDeclaration", line: 2, column: 1 } ]
+        },
+        {
             code: "var a = 'b';",
             output: "var a = 'b' ;",
             options: [ { before: true, after: true } ],
